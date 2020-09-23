@@ -16,6 +16,9 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Soft delete
+gem 'acts_as_paranoid', '~> 0.7.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -32,6 +35,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.2'
+  gem 'rubocop-rails', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
