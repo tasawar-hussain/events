@@ -1,6 +1,15 @@
-# README
+# Group Event API
 
-Ruby on Rails api application for group event
+####  Ruby on Rails api application for group event
+### Assumptions
+##### Following are the assumptions taken while implementing the test
+* The event name will be unique to identify an event uniquely
+* `Duration` will be in days `(1, 2,3 ...)`
+* On `published: true`, only then one the `Start Date`, `End Date` and `Duration` field will be calculated  if others two are present
+* `End Date` can not be in past
+* `Start Date` can not exceed `End Date`
+* If `Start Date` and `End Date` are on same day, it will considered as event with `1 day duration`, for exampple if `Start Date: 20-11-2020` and `End Date: 23-11-2020`, the `duration` will `days`
+* After the `event` has been `published`, it can not be updated
 
 ## Project Setup
 ### Prerequisites
@@ -37,3 +46,6 @@ Ruby on Rails api application for group event
     ```bash
     rspec spec/
     ```
+7. To run swagger, enter the following url in browser:
+    ```bash
+    http://127.0.0.1:3000/api-docs/index.html
