@@ -6,12 +6,10 @@ module Api
       before_action :set_group_event, only: %i[show update destroy]
 
       def index
-        json_response(GroupEvent.all)
+        @group_events = GroupEvent.all
       end
 
-      def show
-        json_response(@group_event)
-      end
+      def show; end
 
       def create
         @group_event = GroupEvent.create!(group_event_params)
