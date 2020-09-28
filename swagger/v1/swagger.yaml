@@ -1,0 +1,129 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/group_events":
+    get:
+      summary: Get All Group Events
+      tags:
+      - Group Events
+      responses:
+        '200':
+          description: Get all group events
+          content: {}
+    post:
+      summary: Create a Group Event
+      tags:
+      - Group Events
+      parameters: []
+      responses:
+        '201':
+          description: Group event created
+          content: {}
+        '422':
+          description: invalid request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                group_event:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    location:
+                      type: string
+                    start_date:
+                      type: string
+                      example: 20-12-2020
+                    end_date:
+                      type: string
+                      example: 27-12-2020
+                    published:
+                      type: boolean
+                      example: 'true'
+              required:
+              - group_event
+  "/api/v1/group_events/{id}":
+    get:
+      summary: Get a Group Event
+      tags:
+      - Group Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Group event found
+          content: {}
+        '404':
+          description: Group event not found
+          content: {}
+    put:
+      summary: Update a Group Event
+      tags:
+      - Group Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: roup event updated
+          content: {}
+        '404':
+          description: Group event not found
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                group_event:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    start_date:
+                      type: string
+                      example: 20-12-2020
+                    end_date:
+                      type: string
+                      example: 27-12-2020
+              required:
+              - group_event
+    delete:
+      summary: Delete a Group Event
+      tags:
+      - Group Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Group event found
+          content: {}
+        '404':
+          description: Group event not found
+          content: {}
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000
