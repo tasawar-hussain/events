@@ -7,3 +7,4 @@ AllCops:
     - "config/**/*"
     - "script/**/*"
     - "bin/{rails,rake,bundle,setup,spring}"
+    - "README.md"
